@@ -1,9 +1,7 @@
 import { JWT } from "google-auth-library";
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-const CREDENTIALS_PATH = JSON.parse(
-  process.env.GOOGLE_APPLICATION_CREDENTIALS as string,
-);
+const CREDENTIALS_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS as string;
 const SHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 
 async function getAuthClient() {

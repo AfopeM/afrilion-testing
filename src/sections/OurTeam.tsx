@@ -38,7 +38,7 @@ export default function OurTeam() {
         <div className="mx-auto max-w-[800px]">
           <Tagline>Our Founder</Tagline>
           <Title>Kehinde Matilukuro</Title>
-          <Paragraph style="pt-4 flex-col flex justify-between gap-4">
+          <Paragraph style="pt-4 flex-col flex justify-between gap-4 text-sm">
             <span>
               a distinguished leader and{" "}
               <strong>
@@ -100,7 +100,7 @@ export default function OurTeam() {
         <div className="relative mx-auto mt-6 h-56 w-full overflow-hidden rounded-md lg:h-72">
           <Image fill alt="team" src={"/team.jpg"} className="object-cover" />
         </div>
-        <Paragraph style="pt-6 flex-col flex justify-between gap-6">
+        <Paragraph style="pt-6 flex-col flex justify-between gap-6 text-sm">
           <span>
             <strong>
               At Afrilion Consulting, our strength lies in the collective
