@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .brand-ease {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .brand-px {
+    @apply px-12 md:px-24 xl:px-56 2xl:px-72;
+  }
+
+  .dotted-background {
+    @apply bg-primary;
+    background-image: radial-gradient(#343d4d33 1px, transparent 1px),
+      radial-gradient(#343d4d33 1px, transparent 1px);
+    background-size: 70px 70px;
+    background-position:
+      0 0,
+      35px 35px;
+  }
+
+  .dotted-background-dark {
+    @apply bg-dark;
+    background-image: radial-gradient(#eff5f71f 1px, transparent 1px),
+      radial-gradient(#eff5f71f 1px, transparent 1px);
+    background-size: 70px 70px;
+    background-position:
+      0 0,
+      35px 35px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

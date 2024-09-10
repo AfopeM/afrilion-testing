@@ -1,0 +1,20 @@
+{
+  "services": {
+    "BSS,OSS & VAS": {
+      "icon": "faGears",
+      "description": "From vendor selection to launch, we ensure your systems are fully optimized for peak performance."
+    },
+    "Project Delivery": {
+      "icon": "faClipboardCheck",
+      "description": "Our seasoned project managers turn your vision into reality, on time and within budget."
+    },
+    "IT Testing": {
+      "icon": "faMagnifyingGlass",
+      "description": "We leave no stone unturned, offering a full suite of testing services to guarantee flawless implementations."
+    },
+    "Business Consulting": {
+      "icon": "faPuzzlePiece",
+      "description": "Streamline your operations and transform your business with our expert guidance."
+    }
+  }
+}

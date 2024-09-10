@@ -1,0 +1,14 @@
+{
+  "vendors": {
+    "airtel": "/vendor/airtel.svg",
+    "ericsson": "/vendor/ericsson.svg",
+    "evolving_systems": "/vendor/evolving_systems.svg",
+    "glo": "/vendor/glo.svg",
+    "huawei": "/vendor/huawei.svg",
+    "ibm": "/vendor/ibm.svg",
+    "mtn": "/vendor/mtn.svg",
+    "nokia": "/vendor/nokia.svg",
+    "oracle": "/vendor/oracle.svg",
+    "9mobile": "/vendor/9mobile.svg"
+  }
+}
