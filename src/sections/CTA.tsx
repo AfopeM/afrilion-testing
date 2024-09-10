@@ -40,6 +40,9 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      const responseData = await response.json();
+      console.log("Full response:", responseData);
+
       if (response.ok) {
         console.log("Form data sent to Google Sheet successfully");
         // Reset form after successful submit
@@ -56,8 +59,7 @@ export default function ContactForm() {
         });
         setFormSubmitted(true);
       } else {
-        const errorData = await response.json();
-        throw new Error(`Failed to submit form: ${errorData.message}`);
+        throw new Error(`Failed to submit form: ${responseData.message}`);
       }
     } catch (error) {
       console.error("Error sending form data to Google Sheet:", error);

@@ -8,15 +8,17 @@ async function getAuthClient() {
   try {
     let credentials;
     if (process.env.VERCEL) {
-      // For Vercel deployment, use the JSON content directly
+      console.log("Using Vercel environment");
       credentials = JSON.parse(
         process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || "{}",
       );
     } else {
-      // For local development, read from the file
+      console.log("Using local environment");
       const CREDENTIALS_PATH = "./secrets/afrilion.json";
       credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
     }
+
+    console.log("Credentials loaded:", !!credentials);
 
     if (!credentials.client_email || !credentials.private_key) {
       throw new Error(
@@ -31,15 +33,17 @@ async function getAuthClient() {
     });
 
     await auth.authorize();
+    console.log("Auth client created successfully");
     return auth;
   } catch (error) {
-    console.error("Error authenticating:", error);
+    console.error("Error in getAuthClient:", error);
     throw error;
   }
 }
 
 export async function appendToSheet(values: string[][]) {
   try {
+    console.log("Starting appendToSheet");
     const { google } = await import("googleapis");
     const auth = await getAuthClient();
     const sheets = google.sheets({ version: "v4", auth });
@@ -48,6 +52,7 @@ export async function appendToSheet(values: string[][]) {
       throw new Error("GOOGLE_SHEET_ID is not set");
     }
 
+    console.log("Appending to sheet:", SHEET_ID);
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
       range: "Sheet1",
@@ -58,7 +63,7 @@ export async function appendToSheet(values: string[][]) {
     console.log(`${response.data.updates?.updatedCells} cells appended.`);
     return response.data;
   } catch (error) {
-    console.error("Error appending to sheet:", error);
+    console.error("Error in appendToSheet:", error);
     throw error;
   }
 }
