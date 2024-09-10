@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="brand-px flex w-full flex-col items-center justify-start gap-y-16 py-[125px]"
+      className="brand-px brand-py flex w-full flex-col items-center justify-start gap-y-16"
     >
       <div className="flex w-full flex-col items-center justify-center text-center">
         <Tagline>Our Expert Services</Tagline>

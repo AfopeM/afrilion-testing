@@ -33,7 +33,7 @@ const iconMap: { [key: string]: IconDefinition } = {
 export default function Cards() {
   const { services } = servicesData;
   return (
-    <div className="wfull max-w5xl grid grid-cols-1 items-center justify-between gap-12 lg:grid-cols-2 lg:gap-24">
+    <div className="grid grid-cols-1 items-center justify-between gap-12 lg:grid-cols-2 lg:gap-24">
       {Object.entries(services).map(([key, { icon, description }], index) => {
         const IconComponent = iconMap[icon as keyof typeof iconMap] || faGears;
         return (

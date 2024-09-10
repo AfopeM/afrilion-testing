@@ -19,7 +19,7 @@ export default function WhyUs() {
     <section
       id="why-us"
       aria-label="Why Choose Afrilion Consulting"
-      className="brand-px dotted-background-dark h[1100px] flex flex-col items-center justify-center gap-16 py-[125px] text-light lg:flex-row"
+      className="brand-px dotted-background-dark brand-py flex flex-col items-center justify-center gap-16 text-light lg:flex-row"
     >
       <div className="flex w-full flex-col items-center justify-center gap-y-10">
         {/* Header Section */}
@@ -110,7 +110,7 @@ export default function WhyUs() {
       </div>
       {/* Decorative Element */}
       <div
-        className="relative block h-96 w-full max-w-[375px] rounded-md bg-primary lg:h-[600px] xl:max-w-[450px]"
+        className="relative block h-96 w-full max-w-[375px] rounded-md bg-primary lg:h-[650px] xl:max-w-[450px]"
         aria-hidden="true"
       ></div>
     </section>

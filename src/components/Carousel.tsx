@@ -8,7 +8,7 @@ const { vendors } = vendorsData;
 
 export default function Carousel() {
   return (
-    <section className="relative flex w-full overflow-hidden bg-dark bg-opacity-[6%] py-8">
+    <section className="relative flex w-full overflow-hidden bg-light py-8">
       <motion.div
         className="flex gap-12"
         animate={{

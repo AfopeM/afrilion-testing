@@ -16,7 +16,7 @@ export default function OurTeam() {
   return (
     <section
       id="our-team"
-      className="brand-px flex flex-col items-center justify-center gap-y-10 py-[125px]"
+      className="brand-px brand-py flex flex-col items-center justify-center gap-y-10"
     >
       {/* Title */}
       <div className="flex flex-col items-center justify-center text-center">
@@ -26,7 +26,7 @@ export default function OurTeam() {
         </Title>
       </div>
       {/* Founder */}
-      <div className="grid w-full max-w-[1000px] grid-cols-1 items-center justify-center gap-5 rounded-md bg-light px-12 py-10 text-center shadow-lg xl:grid-cols-2 xl:text-left">
+      <div className="grid w-full max-w-[1000px] grid-cols-1 items-center justify-center gap-5 rounded-md bg-light px-6 py-10 text-center shadow-lg md:px-12 xl:grid-cols-2 xl:text-left">
         <div className="relative mx-auto h-96 max-h-[700px] w-full max-w-[400px] overflow-hidden rounded-md bg-dark shadow-lg xl:h-full">
           <Image
             fill
@@ -94,7 +94,7 @@ export default function OurTeam() {
       </div>
 
       {/* Team */}
-      <div className="w-full gap-10 rounded-md bg-light px-12 py-10 text-center shadow-lg lg:text-left">
+      <div className="w-full gap-10 rounded-md bg-light px-6 py-10 text-center shadow-lg md:px-12 lg:text-left">
         <Tagline>Our Team</Tagline>
         <Title>Dedicated Experts Driving Telecom Innovation</Title>
         <div className="relative mx-auto mt-6 h-56 w-full overflow-hidden rounded-md lg:h-72">

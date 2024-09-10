@@ -36,4 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # Google Sheets API credentials
-public/afrilion.json
+/secrets/afrilion.json
+/public/afrilion.json
