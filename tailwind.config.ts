@@ -24,9 +24,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
-// light: "#F2F2F2",
-// primary: "#C6E2F8",
-// secondary: "#1F2A47",
-// dark: "#343D4D",
-// background: "#FDFEFF",

@@ -7,13 +7,16 @@
     @apply transition-all duration-300 ease-in-out;
   }
   .brand-px {
-    @apply px-12 md:px-24 xl:px-56 2xl:px-72;
+    @apply px-8 md:px-16 xl:px-36 2xl:px-56;
+  }
+  .brand-py {
+    @apply py-[220px];
   }
 
   .dotted-background {
     @apply bg-primary;
-    background-image: radial-gradient(#343d4d33 1px, transparent 1px),
-      radial-gradient(#343d4d33 1px, transparent 1px);
+    background-image: radial-gradient(#343d4d40 1px, transparent 1px),
+      radial-gradient(#343d4d40 1px, transparent 1px);
     background-size: 70px 70px;
     background-position:
       0 0,

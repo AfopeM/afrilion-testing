@@ -3,7 +3,7 @@ import Cards from "./Cards";
 import Footer from "./Footer";
 import Carousel from "./Carousel";
 import { PrimaryButtons, SmoothScrollLink } from "./Buttons";
-import { SectionHeading, Title, Tagline, Paragraph } from "./Typography";
+import { Title, Tagline, Paragraph } from "./Typography";
 
 export {
   Nav,
@@ -14,6 +14,5 @@ export {
   Paragraph,
   Carousel,
   PrimaryButtons,
-  SectionHeading,
   SmoothScrollLink,
 };

@@ -1,27 +1,20 @@
 "use client";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { PrimaryButtons, SmoothScrollLink } from "./Buttons";
-
 import React, { useState, useEffect } from "react";
 import { useMobileScreen } from "@/hooks/useMobile";
+import { motion, AnimatePresence } from "framer-motion";
+import { PrimaryButtons, SmoothScrollLink } from "./Buttons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 // Section names
 const sections = ["services", "why us", "our team"];
 
-// SmoothScrollLink props
-interface SmoothScrollLinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}
-
 // Main Nav component
 export default function Nav() {
   const isMobile = useMobileScreen();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Toggle menu
   const toggleMenu = () => {
@@ -35,6 +28,16 @@ export default function Nav() {
     }
   }, [isMobile]);
 
+  // Check if page is scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Mobile Navigation component
   const NavMobile = () => (
     <motion.div
@@ -42,8 +45,8 @@ export default function Nav() {
       initial={{ opacity: 0, y: "-100%" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "-100%" }}
+      className={` ${isScrolled ? "top-28" : "top-32"} fixed left-0 right-0 z-50`}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed left-0 right-0 top-28 z-50"
     >
       <ul className="mx-auto flex w-2/3 flex-col items-center justify-center gap-4 space-y-6 rounded-md bg-light px-12 py-8 shadow-lg md:w-1/2">
         {sections.map((section) => (
@@ -72,18 +75,15 @@ export default function Nav() {
 
   // Desktop Navigation component
   const NavDesktop = () => (
-    <ul className="flex w-[55%] max-w-[800px] justify-between">
+    <ul className="flex w-[62%] max-w-[700px] justify-center gap-2 lg:justify-between xl:justify-around">
       {sections.map((section) => (
         <motion.li
           key={section}
           initial="rest"
           whileHover="hover"
-          className="brand-ease mx-auto w-fit cursor-pointer rounded-md px-4 py-2 text-center hover:scale-105 hover:bg-primary hover:bg-opacity-20"
+          className="brand-ease cursor-pointer rounded-sm px-4 py-2 text-center hover:bg-dark hover:bg-opacity-10"
         >
-          <SmoothScrollLink
-            href={`#${section.replace(" ", "-")}`}
-            className="focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-0"
-          >
+          <SmoothScrollLink href={`#${section.replace(" ", "-")}`}>
             {section}
           </SmoothScrollLink>
         </motion.li>
@@ -93,49 +93,54 @@ export default function Nav() {
 
   // Main return statement
   return (
-    <nav className="dotted-background brand-px fixed left-0 top-0 z-50 flex h-24 w-full items-center justify-between border-b border-dark capitalize tracking-wide shadow-lg md:h-24">
+    <nav
+      className={`dotted-background brand-px brand-ease fixed left-0 top-0 z-50 flex h-24 w-full items-center justify-between border-b border-dark capitalize tracking-wide ${
+        isScrolled ? "h-24 shadow-lg" : "h-28"
+      }`}
+    >
       <SmoothScrollLink
-        setIsOpen={setIsOpen}
         href="#hero"
-        className="relative h-2/3 w-2/5 max-w-[175px] rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-0 lg:h-1/2"
+        setIsOpen={setIsOpen}
+        className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
       >
         <Image src="/logo.svg" alt="logo" fill className="object-contain" />
       </SmoothScrollLink>
       {/* Mobile Navigation */}
       {isMobile ? (
-        <>
-          <button
-            onClick={toggleMenu}
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            className="relative flex flex-col items-center justify-center overflow-hidden p-4 focus:rounded focus:outline-none focus:ring-[1px] focus:ring-secondary focus:ring-opacity-0"
+        <button
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          className="relative flex flex-col items-center justify-center overflow-hidden p-4"
+        >
+          <motion.div
+            animate={{ y: isOpen ? 0 : "-100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="absolute"
           >
-            <motion.div
-              animate={{ y: isOpen ? 0 : "-100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute"
-            >
-              <FontAwesomeIcon icon={faTimes} className="text-2xl" />
-            </motion.div>
-            <motion.div
-              animate={{ y: isOpen ? "100%" : 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute"
-            >
-              <FontAwesomeIcon icon={faBars} className="text-2xl" />
-            </motion.div>
-          </button>
-          <AnimatePresence>{isOpen && <NavMobile />}</AnimatePresence>
-        </>
+            <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+          </motion.div>
+          <motion.div
+            animate={{ y: isOpen ? "100%" : 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="absolute"
+          >
+            <FontAwesomeIcon icon={faBars} className="text-2xl" />
+          </motion.div>
+        </button>
       ) : (
-        <>
+        <div className="flex w-4/5 items-center justify-end gap-2 lg:w-3/5 lg:gap-8">
           {/* Desktop Navigation */}
           <NavDesktop />
-          <SmoothScrollLink href="#cta" className="relative w-fit">
+          <SmoothScrollLink
+            href="#cta"
+            className="relative w-fit text-[15px] lg:text-base"
+          >
             <PrimaryButtons text="get started" />
           </SmoothScrollLink>
-        </>
+        </div>
       )}
+      <AnimatePresence>{isOpen && isMobile && <NavMobile />}</AnimatePresence>
     </nav>
   );
 }
