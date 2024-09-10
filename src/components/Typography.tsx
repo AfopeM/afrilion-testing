@@ -30,7 +30,7 @@ export function Title({ children, style, isH1 }: TitleProps) {
 
   return isH1 ? (
     <h1
-      className={`${sharedClasses} pb-2 text-[40px] leading-10 md:pb-4 md:leading-[40px] lg:text-[48px] lg:leading-[50px] 2xl:text-[56px] 2xl:leading-[54px]`}
+      className={`${sharedClasses} ${style} pb-2 text-[40px] leading-10 md:pb-4 md:leading-[40px] lg:text-[48px] lg:leading-[50px] 2xl:text-[56px] 2xl:leading-[54px]`}
     >
       {children}
     </h1>
