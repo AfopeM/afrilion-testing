@@ -18,6 +18,12 @@ async function getAuthClient() {
       credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
     }
 
+    if (!credentials.client_email || !credentials.private_key) {
+      throw new Error(
+        "Invalid credentials: missing client_email or private_key",
+      );
+    }
+
     const auth = new JWT({
       email: credentials.client_email,
       key: credentials.private_key,
@@ -37,6 +43,10 @@ export async function appendToSheet(values: string[][]) {
     const { google } = await import("googleapis");
     const auth = await getAuthClient();
     const sheets = google.sheets({ version: "v4", auth });
+
+    if (!SHEET_ID) {
+      throw new Error("GOOGLE_SHEET_ID is not set");
+    }
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,

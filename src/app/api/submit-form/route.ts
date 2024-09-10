@@ -12,7 +12,10 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error sending form data to Google Sheet:", error);
     return NextResponse.json(
-      { message: "Error sending form data to Google Sheet" },
+      {
+        message: "Error sending form data to Google Sheet",
+        error: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 },
     );
   }

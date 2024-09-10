@@ -56,7 +56,8 @@ export default function ContactForm() {
         });
         setFormSubmitted(true);
       } else {
-        throw new Error("Failed to submit form");
+        const errorData = await response.json();
+        throw new Error(`Failed to submit form: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error sending form data to Google Sheet:", error);
