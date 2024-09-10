@@ -1,18 +1,29 @@
 import { JWT } from "google-auth-library";
+import fs from "fs";
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-// const CREDENTIALS_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS as string;
-const CREDENTIALS_PATH = process.env.VERCEL
-  ? "/var/task/secrets/afrilion.json"
-  : "./secrets/afrilion.json";
 const SHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 
 async function getAuthClient() {
   try {
+    let credentials;
+    if (process.env.VERCEL) {
+      // For Vercel deployment, use the JSON content directly
+      credentials = JSON.parse(
+        process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || "{}",
+      );
+    } else {
+      // For local development, read from the file
+      const CREDENTIALS_PATH = "./secrets/afrilion.json";
+      credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
+    }
+
     const auth = new JWT({
-      keyFile: CREDENTIALS_PATH,
+      email: credentials.client_email,
+      key: credentials.private_key,
       scopes: SCOPES,
     });
+
     await auth.authorize();
     return auth;
   } catch (error) {
