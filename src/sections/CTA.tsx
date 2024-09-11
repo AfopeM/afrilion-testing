@@ -32,6 +32,7 @@ export default function ContactForm() {
     e.preventDefault();
 
     try {
+      console.log("Submitting form data:", formData);
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: {
@@ -40,6 +41,7 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      console.log("Response status:", response.status);
       const responseData = await response.json();
       console.log("Full response:", responseData);
 

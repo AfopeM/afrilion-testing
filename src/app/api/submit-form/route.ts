@@ -3,8 +3,11 @@ import { appendToSheet } from "@/utils/googleSheetsService";
 
 export async function POST(request: Request) {
   try {
+    console.log("API route called");
     const formData = await request.json();
+    console.log("Received form data:", formData);
     const result = await appendToSheet([Object.values(formData)]);
+    console.log("Append result:", result);
     return NextResponse.json(
       { message: "Form data sent to Google Sheet successfully", result },
       { status: 200 },
