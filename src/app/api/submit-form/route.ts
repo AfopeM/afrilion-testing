@@ -1,8 +1,19 @@
 import { NextResponse } from "next/server";
 import { appendToSheet } from "@/utils/googleSheetsService";
+import { RateLimiter } from "limiter";
+
+const limiter = new RateLimiter({ tokensPerInterval: 200, interval: "minute" });
 
 export async function POST(request: Request) {
   try {
+    const remainingRequests = await limiter.removeTokens(1);
+    if (remainingRequests < 0) {
+      return NextResponse.json(
+        { message: "Rate limit exceeded. Please try again later." },
+        { status: 429 },
+      );
+    }
+
     console.log("API route called");
     const formData = await request.json();
     console.log("Received form data:", formData);

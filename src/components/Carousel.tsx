@@ -6,11 +6,16 @@ import vendorsData from "../data/vendors.json";
 
 const { vendors } = vendorsData;
 
-export default function Carousel() {
+interface CarouselProps {
+  height: string;
+}
+export default function Carousel({ height }: CarouselProps) {
   return (
-    <section className="relative flex w-full overflow-hidden bg-light py-8">
+    <section
+      className={`${height} relative flex w-full overflow-hidden bg-light`}
+    >
       <motion.div
-        className="flex gap-12"
+        className="flex items-center gap-12"
         animate={{
           x: ["0%", "-50%"],
         }}
@@ -27,7 +32,13 @@ export default function Carousel() {
           ([name, src], index) => (
             <article
               key={`${name}-${index}`}
-              className="relative flex h-14 w-36 flex-shrink-0 items-center justify-center"
+              className={` ${
+                name === "ibm" || name === "nokia"
+                  ? "h-10"
+                  : name === "csg" || name === "avaya"
+                    ? "mt-4 h-9"
+                    : "h-14"
+              } relative flex w-36 flex-shrink-0 items-center justify-center`}
             >
               <Image src={src} alt={name} fill className="object-contain" />
             </article>

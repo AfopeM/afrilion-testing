@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 import whyUsData from "@/data/why-us.json";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,7 +26,7 @@ export default function WhyUs() {
         {/* Header Section */}
         <div className="text-center text-primary lg:self-start lg:text-start">
           <Tagline style="text-light">Your Success, Our Commitment</Tagline>
-          <Title style="pb-2 lg:max-w-[560px]">
+          <Title style="pb-2 max-w-[560px]">
             Why Choose Afrilion Consulting for Your Telecom Needs?
           </Title>
           <Paragraph style="max-w-[500px] text-light mx-auto lg:mx-0">
@@ -108,11 +109,15 @@ export default function WhyUs() {
           ))}
         </div>
       </div>
-      {/* Decorative Element */}
-      <div
-        className="relative block h-96 w-full max-w-[375px] rounded-md bg-primary lg:h-[650px] xl:max-w-[450px]"
-        aria-hidden="true"
-      ></div>
+      {/* Image */}
+      <div className="relative hidden h-96 w-full max-w-[375px] overflow-hidden rounded-md lg:block lg:h-[650px] xl:max-w-[450px]">
+        <Image
+          fill
+          src="/why-us.jpg"
+          alt="why-us by Jonas Stolle from unsplash"
+          className="object-cover"
+        />
+      </div>
     </section>
   );
 }

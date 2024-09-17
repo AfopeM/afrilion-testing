@@ -46,9 +46,13 @@ export default function Cards() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex h-72 max-w-[350px] flex-col items-center justify-center rounded-md bg-light px-10 text-center shadow-lg hover:shadow-xl"
           >
-            <FontAwesomeIcon icon={IconComponent} className="text-4xl" />
+            <FontAwesomeIcon
+              icon={IconComponent}
+              className="text-4xl"
+              aria-hidden="true"
+            />
             <div className="pb-1 pt-6">
-              <h4 className="text-2xl font-black tracking-tight">{key}</h4>
+              <h3 className="text-2xl font-black tracking-tight">{key}</h3>
               <Tagline textSize="text-xs lg:text-sm">service</Tagline>
             </div>
             <p className="text-sm leading-6 tracking-wide opacity-70 md:text-base">

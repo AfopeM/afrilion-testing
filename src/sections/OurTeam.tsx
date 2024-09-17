@@ -85,9 +85,9 @@ export default function OurTeam() {
           {!isDesktop && (
             <button
               onClick={() => setShowMore(!showMore)}
-              className="relative mt-6 h-10 w-fit text-sm"
+              className="brand-ease mt-8 w-fit rounded-md bg-primary bg-opacity-40 px-4 py-2 text-xs tracking-wider hover:bg-opacity-100 md:text-sm"
             >
-              <PrimaryButtons blue text={showMore ? "See Less" : "See More"} />
+              {showMore ? "See Less" : "See More"}
             </button>
           )}
         </div>
@@ -145,12 +145,9 @@ export default function OurTeam() {
         {isMobile && (
           <button
             onClick={() => setShowMoreTeam(!showMoreTeam)}
-            className="relative mt-6 h-10 w-fit text-sm"
+            className="brand-ease mt-8 w-fit rounded-md bg-primary bg-opacity-40 px-4 py-2 text-xs tracking-wider hover:bg-opacity-100 md:text-sm"
           >
-            <PrimaryButtons
-              blue
-              text={showMoreTeam ? "See Less" : "See More"}
-            />
+            {showMoreTeam ? "See Less" : "See More"}
           </button>
         )}
       </div>

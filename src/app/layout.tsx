@@ -17,6 +17,22 @@ export const metadata: Metadata = {
     "Afrilion Consulting delivers innovative BSS, OSS, and VAS solutions for MNOs and MVNOs across Africa. Expert project management, IT testing, and business process consulting for telecom excellence.",
   keywords:
     "Afrilion Consulting, telecom consulting, BSS, OSS, VAS, Africa, project management, IT testing, business process consulting",
+  openGraph: {
+    title: "Afrilion Consulting | Leading Telecom BSS/OSS Services in Africa",
+    description:
+      "Innovative telecom solutions for MNOs and MVNOs across Africa",
+    url: "https://www.afrilionconsulting.com",
+    siteName: "Afrilion Consulting",
+    images: [
+      {
+        url: "https://www.afrilionconsulting.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

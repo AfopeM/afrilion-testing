@@ -75,7 +75,7 @@ export default function Nav() {
 
   // Desktop Navigation component
   const NavDesktop = () => (
-    <ul className="flex w-[62%] max-w-[700px] justify-center gap-2 lg:justify-between xl:justify-around">
+    <ul className="flex w-[62%] max-w-[700px] justify-center lg:justify-between xl:justify-around">
       {sections.map((section) => (
         <motion.li
           key={section}
@@ -102,8 +102,14 @@ export default function Nav() {
         href="#hero"
         setIsOpen={setIsOpen}
         className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
+        aria-label="Go to top of page"
       >
-        <Image src="/logo.svg" alt="logo" fill className="object-contain" />
+        <Image
+          src="/logo.svg"
+          alt="Afrilion Consulting logo"
+          fill
+          className="object-contain"
+        />
       </SmoothScrollLink>
       {/* Mobile Navigation */}
       {isMobile ? (
@@ -118,23 +124,32 @@ export default function Nav() {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="absolute"
           >
-            <FontAwesomeIcon icon={faTimes} className="text-2xl" />
+            <FontAwesomeIcon
+              icon={faTimes}
+              className="text-2xl"
+              aria-hidden="true"
+            />
           </motion.div>
           <motion.div
             animate={{ y: isOpen ? "100%" : 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="absolute"
           >
-            <FontAwesomeIcon icon={faBars} className="text-2xl" />
+            <FontAwesomeIcon
+              icon={faBars}
+              className="text-2xl"
+              aria-hidden="true"
+            />
           </motion.div>
         </button>
       ) : (
-        <div className="flex w-4/5 items-center justify-end gap-2 lg:w-3/5 lg:gap-8">
+        <div className="flex w-[70%] items-center justify-end gap-4 lg:w-3/5 lg:gap-8">
           {/* Desktop Navigation */}
           <NavDesktop />
           <SmoothScrollLink
             href="#cta"
             className="relative w-fit text-[15px] lg:text-base"
+            aria-label="Get started"
           >
             <PrimaryButtons text="get started" />
           </SmoothScrollLink>
