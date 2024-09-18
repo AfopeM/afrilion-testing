@@ -8,11 +8,13 @@ import {
   PrimaryButtons,
   SmoothScrollLink,
 } from "@/components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hero() {
   return (
     <header id="hero" className="dotted-background h-screen">
-      <section className="brand-px flex h-[87vh] w-full flex-col items-center justify-between gap-10 lg:flex-row">
+      <section className="brand-px flex h-[85vh] w-full flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="mt-20 flex h-full w-full flex-col items-center justify-center text-center lg:h-auto lg:items-start lg:text-left">
           <Tagline>Revolutionizing Telecom</Tagline>
           <Title isH1>
@@ -33,7 +35,16 @@ export default function Hero() {
           <Image src="/hero.png" alt="hero" fill className="object-contain" />
         </div>
       </section>
-      <Carousel height="h-[13vh]" />
+      <section className="flex h-[15vh] flex-col items-center gap-4">
+        <div className="flex items-center gap-4 text-[10px] text-light">
+          <FontAwesomeIcon icon={faStar} className="opacity-50" />
+          <h2 className="space-x-1 text-sm uppercase tracking-wide">
+            our vendors experience
+          </h2>
+          <FontAwesomeIcon icon={faStar} className="opacity-50" />
+        </div>
+        <Carousel />
+      </section>
     </header>
   );
 }

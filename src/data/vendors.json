@@ -1,15 +1,17 @@
 {
   "vendors": {
-    "9mobile": "/vendor/9mobile.svg",
-    "airtel": "/vendor/airtel.svg",
     "avaya": "/vendor/avaya.svg",
     "csg": "/vendor/csg.svg",
     "ericsson": "/vendor/ericsson.svg",
     "evolving_systems": "/vendor/evolving_systems.svg",
     "huawei": "/vendor/huawei.svg",
     "ibm": "/vendor/ibm.svg",
-    "mtn": "/vendor/mtn.svg",
     "nokia": "/vendor/nokia.svg",
     "oracle": "/vendor/oracle.svg"
+  },
+  "MNO": {
+    "9mobile": "/vendor/9mobile.svg",
+    "airtel": "/vendor/airtel.svg",
+    "mtn": "/vendor/mtn.svg"
   }
 }

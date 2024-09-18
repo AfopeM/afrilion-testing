@@ -6,14 +6,9 @@ import vendorsData from "../data/vendors.json";
 
 const { vendors } = vendorsData;
 
-interface CarouselProps {
-  height: string;
-}
-export default function Carousel({ height }: CarouselProps) {
+export default function Carousel() {
   return (
-    <section
-      className={`${height} relative flex w-full overflow-hidden bg-light`}
-    >
+    <section className="relative flex h-full w-full overflow-hidden bg-light">
       <motion.div
         className="flex items-center gap-12"
         animate={{

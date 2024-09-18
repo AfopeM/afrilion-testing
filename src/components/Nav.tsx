@@ -63,8 +63,8 @@ export default function Nav() {
         <li>
           <SmoothScrollLink
             href="#cta"
-            className="relative mx-auto w-fit"
             setIsOpen={setIsOpen}
+            className="relative mx-auto h-12 w-fit"
           >
             <PrimaryButtons blue text="get started" />
           </SmoothScrollLink>
@@ -94,20 +94,20 @@ export default function Nav() {
   // Main return statement
   return (
     <nav
-      className={`dotted-background brand-px brand-ease fixed left-0 top-0 z-50 flex h-24 w-full items-center justify-between border-b border-dark capitalize tracking-wide ${
+      className={`dotted-background brand-px brand-ease fixed left-0 top-0 z-50 flex w-full items-center justify-between border-b border-dark capitalize tracking-wide ${
         isScrolled ? "h-24 shadow-lg" : "h-28"
       }`}
     >
       <SmoothScrollLink
         href="#hero"
         setIsOpen={setIsOpen}
-        className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
         aria-label="Go to top of page"
+        className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
       >
         <Image
+          fill
           src="/logo.svg"
           alt="Afrilion Consulting logo"
-          fill
           className="object-contain"
         />
       </SmoothScrollLink>
@@ -148,7 +148,7 @@ export default function Nav() {
           <NavDesktop />
           <SmoothScrollLink
             href="#cta"
-            className="relative w-fit text-[15px] lg:text-base"
+            className="relative h-12 w-fit text-[15px] lg:text-base"
             aria-label="Get started"
           >
             <PrimaryButtons text="get started" />
