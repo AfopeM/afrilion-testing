@@ -32,7 +32,13 @@ export default function Hero() {
           </SmoothScrollLink>
         </div>
         <div className="relative hidden h-full w-full max-w-[450px] rounded-md lg:block">
-          <Image src="/hero.png" alt="hero" fill className="object-contain" />
+          <Image
+            fill
+            priority
+            alt="hero"
+            src="/hero.png"
+            className="object-contain"
+          />
         </div>
       </section>
       <section className="flex h-[15vh] flex-col items-center gap-4">

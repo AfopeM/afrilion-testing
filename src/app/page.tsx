@@ -4,12 +4,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <main>
+      {/* <main>
         <Services />
         <WhyUs />
         <OurTeam />
         <CTA />
-      </main>
+      </main> */}
     </>
   );
 }

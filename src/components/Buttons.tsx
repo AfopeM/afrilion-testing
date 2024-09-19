@@ -3,15 +3,16 @@ import React from "react";
 interface PrimaryButtonsProps {
   text: string;
   blue?: boolean;
+  textSize?: string;
 }
 
-export function PrimaryButtons({ text, blue }: PrimaryButtonsProps) {
+export function PrimaryButtons({ text, blue, textSize }: PrimaryButtonsProps) {
   return (
     <span>
       <span
         className={`${
           blue ? "bg-primary" : "bg-light"
-        } brand-ease relative z-10 flex h-full w-full items-center justify-center rounded-md border border-dark px-6 py-4 capitalize tracking-wider hover:translate-x-0.5 hover:translate-y-0.5`}
+        } ${textSize} brand-ease relative z-10 flex h-full w-full items-center justify-center rounded-md border border-dark px-6 py-4 capitalize tracking-wider hover:translate-x-0.5 hover:translate-y-0.5`}
       >
         {text}
       </span>

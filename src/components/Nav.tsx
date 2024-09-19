@@ -45,16 +45,16 @@ export default function Nav() {
       initial={{ opacity: 0, y: "-100%" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "-100%" }}
-      className={` ${isScrolled ? "top-28" : "top-32"} fixed left-0 right-0 z-50`}
+      className={` ${isScrolled ? "top-20" : "top-24"} fixed left-0 right-0 z-50`}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <ul className="mx-auto flex w-2/3 flex-col items-center justify-center gap-4 space-y-6 rounded-md bg-light px-12 py-8 shadow-lg md:w-1/2">
+      <ul className="mx-auto flex w-2/3 flex-col items-center justify-center gap-10 rounded-md bg-light px-12 py-8 shadow-lg md:w-1/2">
         {sections.map((section) => (
           <li key={section}>
             <SmoothScrollLink
               setIsOpen={setIsOpen}
               href={`#${section.replace(" ", "-")}`}
-              className="brand-ease mx-auto rounded-md px-6 py-4 text-center hover:scale-105 hover:bg-primary hover:bg-opacity-20"
+              className="brand-ease mx-auto rounded-md px-4 py-3 text-center hover:scale-105 hover:bg-primary hover:bg-opacity-20"
             >
               {section}
             </SmoothScrollLink>
@@ -64,7 +64,7 @@ export default function Nav() {
           <SmoothScrollLink
             href="#cta"
             setIsOpen={setIsOpen}
-            className="relative mx-auto h-12 w-fit"
+            className="h8 relative w-fit"
           >
             <PrimaryButtons blue text="get started" />
           </SmoothScrollLink>
@@ -75,13 +75,13 @@ export default function Nav() {
 
   // Desktop Navigation component
   const NavDesktop = () => (
-    <ul className="flex w-[62%] max-w-[700px] justify-center lg:justify-between xl:justify-around">
+    <ul className="flex w-[62%] max-w-[700px] justify-around lg:justify-between xl:justify-around">
       {sections.map((section) => (
         <motion.li
           key={section}
           initial="rest"
           whileHover="hover"
-          className="brand-ease cursor-pointer rounded-sm px-4 py-2 text-center hover:bg-dark hover:bg-opacity-10"
+          className="brand-ease cursor-pointer rounded-md px-4 py-2 text-center hover:bg-dark hover:bg-opacity-10"
         >
           <SmoothScrollLink href={`#${section.replace(" ", "-")}`}>
             {section}
@@ -94,8 +94,8 @@ export default function Nav() {
   // Main return statement
   return (
     <nav
-      className={`dotted-background brand-px brand-ease fixed left-0 top-0 z-50 flex w-full items-center justify-between border-b border-dark capitalize tracking-wide ${
-        isScrolled ? "h-24 shadow-lg" : "h-28"
+      className={`dotted-background brand-px brand-ease fixed left-0 top-0 z-50 flex w-full items-center justify-between border-b border-dark text-sm capitalize tracking-wide ${
+        isScrolled ? "h-16 shadow-lg" : "h-20"
       }`}
     >
       <SmoothScrollLink
@@ -148,10 +148,13 @@ export default function Nav() {
           <NavDesktop />
           <SmoothScrollLink
             href="#cta"
-            className="relative h-12 w-fit text-[15px] lg:text-base"
             aria-label="Get started"
+            className="relative h-10 w-fit text-[15px] lg:text-base"
           >
-            <PrimaryButtons text="get started" />
+            <PrimaryButtons
+              textSize="text-xs tracking-widest"
+              text="get started"
+            />
           </SmoothScrollLink>
         </div>
       )}

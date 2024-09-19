@@ -45,7 +45,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-background text-dark`}>
         <Nav />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
