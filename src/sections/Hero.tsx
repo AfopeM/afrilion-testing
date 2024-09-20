@@ -3,7 +3,6 @@ import Image from "next/image";
 import {
   Title,
   Tagline,
-  Carousel,
   Paragraph,
   PrimaryButtons,
   SmoothScrollLink,
@@ -42,17 +41,6 @@ export default function Hero() {
           className="object-contain"
         />
       </div>
-
-      {/* <section className="flex h-[15vh] flex-col items-center gap-4">
-        <div className="flex items-center gap-4 text-[10px] text-light">
-          <FontAwesomeIcon icon={faStar} className="opacity-50" />
-          <h2 className="space-x-1 text-sm uppercase tracking-wide">
-            our vendors experience
-          </h2>
-          <FontAwesomeIcon icon={faStar} className="opacity-50" />
-        </div>
-        <Carousel />
-      </section> */}
     </header>
   );
 }

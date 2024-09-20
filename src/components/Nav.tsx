@@ -96,7 +96,7 @@ export default function Nav() {
     <nav
       className={`dotted-background brand-px brand-ease ${
         isScrolled ? "fixed left-0 top-0 z-50 h-16 shadow-lg" : "relative h-20"
-      } flex w-full items-center justify-between border-b border-dark text-sm capitalize tracking-wide`}
+      } flex w-full items-center justify-between border-b border-dark border-opacity-25 text-sm capitalize tracking-wide`}
     >
       <SmoothScrollLink
         href="#hero"
