@@ -7,7 +7,7 @@
     @apply transition-all duration-300 ease-in-out;
   }
   .brand-px {
-    @apply px-8 md:px-16 xl:px-36 2xl:px-56;
+    @apply px-8 md:px-16 lg:px-20 xl:px-28 2xl:px-32;
   }
   .brand-py {
     @apply py-[150px];

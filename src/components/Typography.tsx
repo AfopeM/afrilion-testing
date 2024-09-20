@@ -44,7 +44,7 @@ export function Title({ children, style, isH1 }: TitleProps) {
 export function Paragraph({ children, style }: TypographyProps) {
   return (
     <p
-      className={`${style} font-normal leading-7 tracking-wide opacity-70 md:text-base lg:text-lg`}
+      className={`${style} font-normal leading-7 tracking-wide opacity-70 md:text-base 2xl:text-lg`}
     >
       {children}
     </p>
