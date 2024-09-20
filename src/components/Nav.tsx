@@ -21,12 +21,14 @@ export default function Nav() {
     setIsOpen(!isOpen);
   };
 
-  // Close menu on desktop
+  // Close menu on desktop and prevent scrolling
   useEffect(() => {
     if (!isMobile) {
       setIsOpen(false);
+    } else {
+      document.body.classList.toggle("overflow-hidden", isOpen); // {{ edit_1 }}
     }
-  }, [isMobile]);
+  }, [isMobile, isOpen]);
 
   // Check if page is scrolled
   useEffect(() => {
@@ -45,7 +47,7 @@ export default function Nav() {
       initial={{ opacity: 0, y: "-100%" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "-100%" }}
-      className={` ${isScrolled ? "top-20" : "top-24"} fixed left-0 right-0 z-50`}
+      className={`fixed left-0 right-0 top-24 z-50`}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <ul className="mx-auto flex w-2/3 flex-col items-center justify-center gap-10 rounded-md bg-light px-12 py-8 shadow-lg md:w-1/2">
@@ -93,72 +95,91 @@ export default function Nav() {
 
   // Main return statement
   return (
-    <nav
-      className={`dotted-background brand-px brand-ease ${
-        isScrolled ? "fixed left-0 top-0 z-50 h-16 shadow-lg" : "relative h-20"
-      } flex w-full items-center justify-between border-b border-dark border-opacity-25 text-sm capitalize tracking-wide`}
-    >
-      <SmoothScrollLink
-        href="#hero"
-        setIsOpen={setIsOpen}
-        aria-label="Go to top of page"
-        className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
+    <>
+      <nav
+        className={`brand-px brand-ease ${
+          isScrolled
+            ? "fixed left-0 top-0 z-50 bg-[#6dcdce] shadow-lg"
+            : "dotted-bg relative"
+        } flex h-20 w-full items-center justify-between border-b border-dark border-opacity-25 text-sm capitalize tracking-wide`}
       >
-        <Image
-          fill
-          src="/logo.svg"
-          alt="Afrilion Consulting logo"
-          className="object-contain"
-        />
-      </SmoothScrollLink>
-      {/* Mobile Navigation */}
-      {isMobile ? (
-        <button
-          onClick={toggleMenu}
-          aria-expanded={isOpen}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          className="relative flex flex-col items-center justify-center overflow-hidden p-4"
+        <SmoothScrollLink
+          href="#hero"
+          setIsOpen={setIsOpen}
+          aria-label="Go to top of page"
+          className="relative h-2/3 w-2/5 max-w-[175px] justify-self-start rounded-md lg:h-1/2"
         >
-          <motion.div
-            animate={{ y: isOpen ? 0 : "-100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="absolute"
+          <Image
+            fill
+            src="/logo.svg"
+            alt="Afrilion Consulting logo"
+            className="object-contain"
+          />
+        </SmoothScrollLink>
+        {/* Mobile Navigation */}
+        {isMobile ? (
+          <button
+            onClick={toggleMenu}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className="relative flex flex-col items-center justify-center overflow-hidden p-4"
           >
-            <FontAwesomeIcon
-              icon={faTimes}
-              className="text-2xl"
-              aria-hidden="true"
+            <motion.div
+              animate={{ y: isOpen ? 0 : "-100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="absolute"
+            >
+              <FontAwesomeIcon
+                icon={faTimes}
+                className="text-2xl"
+                aria-hidden="true"
+              />
+            </motion.div>
+            <motion.div
+              animate={{ y: isOpen ? "100%" : 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="absolute"
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                className="text-2xl"
+                aria-hidden="true"
+              />
+            </motion.div>
+          </button>
+        ) : (
+          <div className="flex w-[70%] items-center justify-end gap-4 lg:w-3/5 lg:gap-8">
+            {/* Desktop Navigation */}
+            <NavDesktop />
+            <SmoothScrollLink
+              href="#cta"
+              aria-label="Get started"
+              className="relative h-10 w-fit text-[15px] lg:text-base"
+            >
+              <PrimaryButtons
+                textSize="text-xs tracking-widest"
+                text="get started"
+              />
+            </SmoothScrollLink>
+          </div>
+        )}
+      </nav>
+      <AnimatePresence>
+        {isOpen && isMobile && (
+          <>
+            <NavMobile />
+            <motion.div
+              key="mobile-nav-backdrop"
+              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              exit={{ opacity: 0, scaleY: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed left-0 top-0 z-20 h-screen w-full bg-dark bg-opacity-50 backdrop-blur-sm"
             />
-          </motion.div>
-          <motion.div
-            animate={{ y: isOpen ? "100%" : 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="absolute"
-          >
-            <FontAwesomeIcon
-              icon={faBars}
-              className="text-2xl"
-              aria-hidden="true"
-            />
-          </motion.div>
-        </button>
-      ) : (
-        <div className="flex w-[70%] items-center justify-end gap-4 lg:w-3/5 lg:gap-8">
-          {/* Desktop Navigation */}
-          <NavDesktop />
-          <SmoothScrollLink
-            href="#cta"
-            aria-label="Get started"
-            className="relative h-10 w-fit text-[15px] lg:text-base"
-          >
-            <PrimaryButtons
-              textSize="text-xs tracking-widest"
-              text="get started"
-            />
-          </SmoothScrollLink>
-        </div>
-      )}
-      <AnimatePresence>{isOpen && isMobile && <NavMobile />}</AnimatePresence>
-    </nav>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

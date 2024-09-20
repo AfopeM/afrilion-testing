@@ -9,7 +9,7 @@ const { vendors } = vendorsData;
 
 export default function Carousel() {
   return (
-    <section className="space-y-4 bg-light py-6 text-center">
+    <section className="dotted-bg-light space-y-4 py-6 text-center">
       <div className="brand-px">
         <Tagline>our vendors experience</Tagline>
         <span className="mt-3 block h-[2px] w-full bg-primary opacity-25" />

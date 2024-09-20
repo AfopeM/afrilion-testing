@@ -10,10 +10,13 @@
     @apply px-8 md:px-16 lg:px-20 xl:px-28 2xl:px-32;
   }
   .brand-py {
-    @apply py-[150px];
+    @apply py-[130px];
+  }
+  .brand-max-w {
+    @apply mx-auto w-full max-w-5xl;
   }
 
-  .dotted-background {
+  .dotted-bg {
     @apply bg-primary;
     background-image: radial-gradient(#343d4d40 1px, transparent 1px),
       radial-gradient(#343d4d40 1px, transparent 1px);
@@ -23,10 +26,20 @@
       35px 35px;
   }
 
-  .dotted-background-dark {
+  .dotted-bg-dark {
     @apply bg-dark;
     background-image: radial-gradient(#eff5f71f 1px, transparent 1px),
       radial-gradient(#eff5f71f 1px, transparent 1px);
+    background-size: 70px 70px;
+    background-position:
+      0 0,
+      35px 35px;
+  }
+
+  .dotted-bg-light {
+    @apply bg-light;
+    background-image: radial-gradient(#90e3e540 1px, transparent 1px),
+      radial-gradient(#90e3e540 1px, transparent 1px);
     background-size: 70px 70px;
     background-position:
       0 0,

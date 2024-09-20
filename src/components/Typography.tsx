@@ -23,19 +23,26 @@ export function Tagline({ children, style, textSize }: TaglineProps) {
 
 interface TitleProps extends TypographyProps {
   isH1?: boolean;
+  isSub?: boolean;
 }
 
-export function Title({ children, style, isH1 }: TitleProps) {
-  const sharedClasses = "font-black tracking-tight font-roboto";
+export function Title({ children, style, isH1, isSub }: TitleProps) {
+  const sharedClasses = "font-black font-roboto";
 
   return isH1 ? (
     <h1
-      className={`${sharedClasses} ${style} pb-2 text-[40px] leading-10 md:pb-4 md:text-[44px] md:leading-[40px] lg:text-[48px] lg:leading-[50px] 2xl:text-[56px] 2xl:leading-[54px]`}
+      className={`${sharedClasses} ${style} pb-2 text-[40px] leading-10 tracking-tight md:pb-4 md:text-[44px] md:leading-[40px] lg:text-[48px] lg:leading-[50px] 2xl:text-[56px] 2xl:leading-[54px]`}
     >
       {children}
     </h1>
+  ) : isSub ? (
+    <h3 className={`${style} ${sharedClasses} text-2xl md:text-3xl`}>
+      {children}
+    </h3>
   ) : (
-    <h2 className={`${style} ${sharedClasses} text-3xl md:text-4xl`}>
+    <h2
+      className={`${style} ${sharedClasses} text-3xl tracking-tight md:text-4xl`}
+    >
       {children}
     </h2>
   );

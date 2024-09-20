@@ -17,12 +17,6 @@ interface Service {
   description: string;
 }
 
-interface ServicesData {
-  services: {
-    [key: string]: Service;
-  };
-}
-
 const iconMap: { [key: string]: IconDefinition } = {
   faGears,
   faPuzzlePiece,

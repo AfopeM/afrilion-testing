@@ -6,12 +6,12 @@ export default function Home() {
     <>
       <Hero />
       <Carousel />
-      {/* <main>
+      <main>
         <Services />
         <WhyUs />
         <OurTeam />
         <CTA />
-      </main> */}
+      </main>
     </>
   );
 }

@@ -34,7 +34,7 @@ export default function Footer() {
   const [copiedInfo, setCopiedInfo] = useState<string | null>(null);
 
   return (
-    <footer className="brand-px dotted-background-dark relative flex h-[700px] flex-col justify-between pt-20 text-center text-background lg:h-[475px]">
+    <footer className="brand-px dotted-bg-dark relative flex h-[700px] flex-col justify-between pt-20 text-center text-background lg:h-[475px]">
       {/* Main Footer Content */}
       <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 lg:flex-row lg:items-start">
         {/* Company Information */}
