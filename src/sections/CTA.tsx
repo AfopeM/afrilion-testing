@@ -72,7 +72,7 @@ export default function ContactForm() {
   return (
     <section id="cta" className="brand-px brand-py dotted-bg">
       <div className="mx-auto max-w-4xl">
-        <Tagline>Expert Telecom Consulting</Tagline>
+        <Tagline>Expert IT Consulting Specializing in Telecom</Tagline>
         <Title style="mb-2">
           Transform Your Telecom Business with African Expertise
         </Title>
