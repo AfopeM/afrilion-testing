@@ -13,7 +13,7 @@
     @apply py-[130px];
   }
   .brand-max-w {
-    @apply mx-auto w-full max-w-5xl;
+    @apply mx-auto w-full max-w-6xl;
   }
 
   .dotted-bg {
@@ -38,8 +38,8 @@
 
   .dotted-bg-light {
     @apply bg-light;
-    background-image: radial-gradient(#90e3e540 1px, transparent 1px),
-      radial-gradient(#90e3e540 1px, transparent 1px);
+    background-image: radial-gradient(#90e3e580 1px, transparent 1px),
+      radial-gradient(#90e3e580 1px, transparent 1px);
     background-size: 70px 70px;
     background-position:
       0 0,

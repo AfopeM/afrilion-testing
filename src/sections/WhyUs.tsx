@@ -20,9 +20,9 @@ export default function WhyUs() {
     <section
       id="why-us"
       aria-label="Why Choose Afrilion Consulting"
-      className="brand-px dotted-bg-dark brand-py  text-light"
+      className="brand-px dotted-bg-dark brand-py text-light"
     >
-      <div className="brand-max-w flex flex-col items-center justify-center gap-16  lg:flex-row">
+      <div className="brand-max-w flex flex-col items-center justify-center gap-16 lg:flex-row">
         {/* Why Us Content */}
         <div className="flex w-full flex-col items-center justify-center gap-y-10">
           {/* Header Section */}
@@ -117,14 +117,19 @@ export default function WhyUs() {
           </div>
         </div>
         {/* Image */}
-        <div className="relative hidden h-96 w-full max-w-[375px] overflow-hidden rounded-md lg:block lg:h-[650px] xl:max-w-[450px]">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative hidden h-96 w-full max-w-[375px] overflow-hidden rounded-md lg:block lg:h-[650px] xl:max-w-[450px]"
+        >
           <Image
             fill
             src="/why-us.jpg"
             alt="why-us by Jonas Stolle from unsplash"
             className="object-cover"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

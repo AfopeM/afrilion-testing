@@ -38,7 +38,7 @@ export default function Cards() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex h-72 max-w-[350px] flex-col items-center justify-center rounded-md bg-light px-10 text-center shadow-lg hover:shadow-xl"
+            className="dotted-bg-light flex h-72 max-w-[350px] flex-col items-center justify-center rounded-md px-10 text-center shadow-lg hover:shadow-xl"
           >
             <FontAwesomeIcon
               icon={IconComponent}

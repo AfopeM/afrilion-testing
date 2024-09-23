@@ -6,8 +6,19 @@ import { useMobileScreen } from "@/hooks/useMobile";
 import { useDesktopScreen } from "@/hooks/useDesktop";
 import { motion, AnimatePresence } from "framer-motion";
 import { Title, Paragraph, Tagline } from "@/components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const { MNO } = MNOdata;
+
+const whoWeAre = {
+  "our vision":
+    "To be recognized as a leading consulting firm providing world-class professional services in Africa.",
+  "our mission":
+    "To deliver top notch professional services and to be a strong and reliable partner in all areas of our business activities.",
+  "our values":
+    "Client-centric Excellence & Integrity Responsible Innovation Continuous Improvement Reliable & Trusted",
+};
 
 export default function OurTeam() {
   const isDesktop = useDesktopScreen();
@@ -16,10 +27,23 @@ export default function OurTeam() {
   const isMobile = useMobileScreen();
   const [showMoreTeam, setShowMoreTeam] = useState(false);
 
+  const SeeMoreBtn = () => (
+    <button
+      onClick={() => setShowMore(!showMore)}
+      className="brand-ease group mx-auto mt-6 flex w-fit items-center gap-2 text-xs opacity-50 hover:gap-4 hover:opacity-100"
+    >
+      <span>{showMore ? "See Less" : "See More"}</span>
+      <FontAwesomeIcon
+        icon={faArrowUp}
+        className={showMore ? "rotate-0" : "rotate-180"}
+      />
+    </button>
+  );
+
   return (
     <section
       id="our-team"
-      className="brand-px brand-py dotted-bg-light flex flex-col items-center justify-center gap-y-16"
+      className="brand-px brand-py dotted-bglight flex flex-col items-center justify-center gap-y-16"
     >
       {/* Title */}
       <div className="flex flex-col items-center justify-center text-center">
@@ -31,8 +55,13 @@ export default function OurTeam() {
 
       <div className="brand-max-w flex flex-col items-center justify-center gap-y-20">
         {/* Founder */}
-        <div className="grid w-full grid-cols-1 items-center justify-center gap-6 text-center lg:grid-cols-2 lg:justify-between lg:gap-10 lg:text-left">
-          <div className="relative mx-auto h-[450px] w-full max-w-[450px] overflow-hidden rounded-md bg-dark shadow-lg lg:h-[570px] xl:mx-0 xl:h-full">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid w-full grid-cols-1 items-center justify-center gap-6 text-center lg:grid-cols-2 lg:justify-between lg:gap-10 lg:text-left"
+        >
+          <div className="relative mx-auto h-[450px] w-full max-w-[450px] overflow-hidden rounded-md bg-dark shadow-lg lg:h-full xl:mx-0">
             <Image
               fill
               alt="founder"
@@ -40,7 +69,7 @@ export default function OurTeam() {
               className="object-cover"
             />
           </div>
-          <div className="mx-auto max-w-[800px]">
+          <div className="dotted-bg-light mx-auto max-w-[800px] rounded-md px-10 py-8 shadow-lg">
             <Tagline>Our Founder</Tagline>
             <Title isSub>Kehinde Matilukuro</Title>
             <Paragraph style="pt-4 flex-col flex justify-between gap-4 text-sm">
@@ -87,26 +116,24 @@ export default function OurTeam() {
                 )}
               </AnimatePresence>
             </Paragraph>
-            {!isDesktop && (
-              <button
-                onClick={() => setShowMore(!showMore)}
-                className="brand-ease mt-6 w-1/4 rounded-md bg-primary bg-opacity-40 py-2 text-xs tracking-wider hover:bg-opacity-100 xl:w-full"
-              >
-                {showMore ? "See Less" : "See More"}
-              </button>
-            )}
+            {!isDesktop && <SeeMoreBtn />}
           </div>
-        </div>
+        </motion.div>
 
         {/* Team */}
-        <div className="grid grid-cols-1 items-center justify-center gap-6 text-center lg:grid-cols-2 lg:gap-10 lg:text-left">
-          <div className="relative h-56 w-full overflow-hidden rounded-md shadow-lg lg:h-[570px] xl:mx-0 xl:h-full">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 items-center justify-center gap-6 text-center lg:grid-cols-2 lg:gap-10 lg:text-left"
+        >
+          <div className="relative h-56 w-full overflow-hidden rounded-md shadow-lg lg:h-full xl:mx-0">
             <Image fill alt="team" src={"/team.jpg"} className="object-cover" />
           </div>
-          <div className="lg:col-start-1 lg:row-start-1">
-            <Tagline>Our Team</Tagline>
+          <div className="dotted-bg-light rounded-md px-10 py-8 shadow-lg lg:col-start-1 lg:row-start-1">
+            <Tagline>About Us</Tagline>
             <Title isSub>Dedicated Experts Driving Telecom Innovation</Title>
-            <Paragraph style="mt-8 flex-col flex justify-between gap-6 text-sm">
+            <Paragraph style="mt-4 flex-col flex justify-between gap-6 text-sm">
               <span>
                 <strong>
                   At Afrilion Consulting, our strength lies in the collective
@@ -148,31 +175,52 @@ export default function OurTeam() {
                 )}
               </AnimatePresence>
             </Paragraph>
-            {isMobile && (
-              <button
-                onClick={() => setShowMoreTeam(!showMoreTeam)}
-                className="brand-ease mt-4 w-1/4 rounded-md bg-primary bg-opacity-40 py-2 text-xs tracking-wider hover:bg-opacity-100"
-              >
-                {showMoreTeam ? "See Less" : "See More"}
-              </button>
-            )}
+            {isMobile && <SeeMoreBtn />}
           </div>
-        </div>
+        </motion.div>
 
-        {/* MNO experience */}
-        <div className="w-full max-w-3xl text-center">
+        {/* Who We Are */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Tagline>Who We Are</Tagline>
+          <Title isSub>Our Vision, Mission, and Values</Title>
+          <div className="mt-8 flex flex-wrap justify-center gap-8">
+            {Object.entries(whoWeAre).map(([key, text]) => {
+              return (
+                <article
+                  key={key}
+                  className="dotted-bg-light max-w-sm rounded-md px-10 py-8 shadow-lg"
+                >
+                  <h4 className="text-lg font-black uppercase">{key}</h4>
+                  <Paragraph style="mt-1 flex-col flex justify-between text-sm">
+                    {text}
+                  </Paragraph>
+                </article>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* MNO Experience */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full max-w-3xl text-center"
+        >
           <Tagline>MNO expertise</Tagline>
           <Title style="max-w-xs md:max-w-none mx-auto" isSub>
             Our team is profiencent with these MNO&apos;s
           </Title>
           <span className="mt-4 block h-[1px] w-full bg-primary opacity-45" />
-          <div className="flex flex-wrap justify-between justify-items-center">
-            {Object.entries(MNO).map(([name, src], index) => {
+          <div className="flex flex-wrap justify-around justify-items-center md:justify-between">
+            {Object.entries(MNO).map(([name, src]) => {
               return (
-                <div
-                  key={name + index}
-                  className="relative h-32 w-32 xl:h-48 xl:w-48"
-                >
+                <div key={name} className="relative h-32 w-32 xl:h-48 xl:w-48">
                   <Image
                     fill
                     src={src}
@@ -183,7 +231,7 @@ export default function OurTeam() {
               );
             })}
           </div>
-        </div>
+        </motion.div> */}
       </div>
     </section>
   );

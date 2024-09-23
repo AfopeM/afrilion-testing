@@ -7,11 +7,17 @@ import {
   PrimaryButtons,
   SmoothScrollLink,
 } from "@/components";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <header id="hero" className="dotted-bg brand-px">
-      <div className="brand-max-w flex h-[700px] flex-col items-center justify-center lg:h-[650px] lg:flex-row">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="brand-max-w flex h-[700px] flex-col items-center justify-center lg:h-[650px] lg:flex-row"
+      >
         {/* Hero Content */}
         <div className="lg:hauto flex h-full w-full flex-col items-center justify-center text-center lg:items-start lg:text-left">
           <Tagline>Revolutionizing Telecom</Tagline>
@@ -21,8 +27,9 @@ export default function Hero() {
           </Title>
 
           <Paragraph style="pb-12 pt-2 md:pt-0 md:pb-10 max-w-[650px] lg:max-w-[500px]">
-            At Afrilion Consulting, we empower IT companies With 25+ years of
-            expertise. We keep you competitive in a rapidly changing industry.
+            Afrilion Consulting is a Nigerian professional services organization
+            established to serve and provide innovative solutions to the
+            telecommunication industry across the African landscape.
           </Paragraph>
 
           <SmoothScrollLink href="#cta" className="relative w-fit">
@@ -40,7 +47,7 @@ export default function Hero() {
             className="object-contain"
           />
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 }

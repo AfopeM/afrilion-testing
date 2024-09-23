@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 // Section names
-const sections = ["services", "why us", "our team"];
+const sections = ["services", "why us", "about us"];
 
 // Main Nav component
 export default function Nav() {
@@ -99,7 +99,7 @@ export default function Nav() {
       <nav
         className={`brand-px brand-ease ${
           isScrolled
-            ? "fixed left-0 top-0 z-50 bg-[#6dcdce] shadow-lg"
+            ? "bg[#6dcdce] dotted-bg-light fixed left-0 top-0 z-50 shadow-lg"
             : "dotted-bg relative"
         } flex h-20 w-full items-center justify-between border-b border-dark border-opacity-25 text-sm capitalize tracking-wide`}
       >
@@ -157,6 +157,7 @@ export default function Nav() {
               className="relative h-10 w-fit text-[15px] lg:text-base"
             >
               <PrimaryButtons
+                blue={isScrolled ? true : false}
                 textSize="text-xs tracking-widest"
                 text="get started"
               />
@@ -171,9 +172,9 @@ export default function Nav() {
             <motion.div
               key="mobile-nav-backdrop"
               onClick={() => setIsOpen(false)}
-              initial={{ opacity: 0, scaleY: 0 }}
-              animate={{ opacity: 1, scaleY: 1 }}
-              exit={{ opacity: 0, scaleY: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="fixed left-0 top-0 z-20 h-screen w-full bg-dark bg-opacity-50 backdrop-blur-sm"
             />
