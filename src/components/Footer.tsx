@@ -38,9 +38,9 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 lg:flex-row lg:items-start">
         {/* Company Information */}
-        <section className="max-w-[500px] space-y-4 lg:text-left">
+        <section className="max-w-[500px] space-y-2 lg:text-left">
           <div
-            className="relative mx-auto block h-24 w-56 lg:mx-0"
+            className="relative mx-auto block h-16 w-56 lg:mx-0"
             aria-label="Afrilion Consulting logo"
           >
             <Image

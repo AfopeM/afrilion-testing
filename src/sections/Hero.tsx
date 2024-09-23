@@ -16,7 +16,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="brand-max-w flex h-[700px] flex-col items-center justify-center lg:h-[650px] lg:flex-row"
+        className="brand-max-w flex h-[700px] flex-col items-center justify-center gap-10 lg:h-[650px] lg:flex-row"
       >
         {/* Hero Content */}
         <div className="lg:hauto flex h-full w-full flex-col items-center justify-center text-center lg:items-start lg:text-left">

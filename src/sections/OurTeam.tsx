@@ -206,7 +206,7 @@ export default function OurTeam() {
         </motion.div>
 
         {/* MNO Experience */}
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -217,7 +217,7 @@ export default function OurTeam() {
             Our team is profiencent with these MNO&apos;s
           </Title>
           <span className="mt-4 block h-[1px] w-full bg-primary opacity-45" />
-          <div className="flex flex-wrap justify-around justify-items-center md:justify-between">
+          <div className="flex flex-wrap justify-center justify-items-center gap-x-20">
             {Object.entries(MNO).map(([name, src]) => {
               return (
                 <div key={name} className="relative h-32 w-32 xl:h-48 xl:w-48">
@@ -231,7 +231,7 @@ export default function OurTeam() {
               );
             })}
           </div>
-        </motion.div> */}
+        </motion.div>
       </div>
     </section>
   );

@@ -42,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-dark`}>
+      <body
+        className={`${inter.className} ${roboto.variable} bg-background text-dark`}
+      >
         <Nav />
         {children}
         <Footer />

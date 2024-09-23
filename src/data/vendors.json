@@ -7,11 +7,14 @@
     "huawei": "/vendor/huawei.svg",
     "ibm": "/vendor/ibm.svg",
     "nokia": "/vendor/nokia.svg",
-    "oracle": "/vendor/oracle.svg"
+    "oracle": "/vendor/oracle.svg",
+    "subex": "/vendor/subex.svg",
+    "nts": "/vendor/nts.svg"
   },
   "MNO": {
     "9mobile": "/vendor/9mobile.svg",
     "airtel": "/vendor/airtel.svg",
+    "glo": "/vendor/glo.svg",
     "mtn": "/vendor/mtn.svg"
   }
 }
